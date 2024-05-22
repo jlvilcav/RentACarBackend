@@ -19,11 +19,11 @@ return new class extends Migration
             $table->unsignedBigInteger('idCargo');
             $table->foreign('idPersona')->references('idPersona')->on('personas');
             $table->foreign('idCargo')->references('idCargo')->on('cargos');
-            $table->integer('bitEstado');
-            $table->integer('usuCrea')->nullable();
-            $table->integer('usuMod')->nullable();
-            $table->timestamps();
-            $table->softDeletes();
+            $table->unsignedBigInteger('usuCrea')->nullable();
+            $table->unsignedBigInteger('usuMod')->nullable();
+            $table->dateTime('fecCrea')->nullable();
+            $table->dateTime('fecMod')->nullable();
+            $table->integer('bitEstado')->default(1);
         });
     }
 

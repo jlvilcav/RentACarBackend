@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('tipodocumentos', function (Blueprint $table) {
             $table->id('idTipoDocumento');
-            $table->string('descripcion', 20);
-            $table->integer('ancho');
-            $table->integer('bitEstado');
-            $table->integer('usuCrea')->nullable();
-            $table->integer('usuMod')->nullable();
-            $table->timestamps();
-            $table->softDeletes();
+            $table->string('descripcion', 20)->nullable();
+            $table->string('abreviatura', 5)->nullable();
+            $table->integer('longitud')->nullable();
+            $table->unsignedBigInteger('usuCrea')->nullable();
+            $table->unsignedBigInteger('usuMod')->nullable();
+            $table->dateTime('fecCrea')->nullable();
+            $table->dateTime('fecMod')->nullable();
+            $table->integer('bitEstado')->default(1);
         });
     }
 
