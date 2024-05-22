@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('cargos', function (Blueprint $table) {
             $table->id('idCargo');
             $table->string('nombreCargo', 50);
-            $table->timestamps();
-            $table->softDeletes();
+            $table->unsignedBigInteger('usuCrea')->nullable();
+            $table->unsignedBigInteger('usuMod')->nullable();
+            $table->dateTime('fecCrea')->nullable();
+            $table->dateTime('fecMod')->nullable();
+            $table->integer('bitEstado')->default(1);
         });
     }
 

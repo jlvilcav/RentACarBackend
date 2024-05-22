@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('perfiles', function (Blueprint $table) {
-            $table->id('idPerfil');
-            $table->string('nombrePerfil', 50);
-            $table->unsignedBigInteger('usuCrea')->nullable();
+        Schema::create('caracteristicas', function (Blueprint $table) {
+            $table->id('idCaracteristica');
+            $table->string('caracteristica', 50);
+            $table->string('label', 50);
+            $table->unsignedBigInteger('usuCrea');
             $table->unsignedBigInteger('usuMod')->nullable();
-            $table->dateTime('fecCrea')->nullable();
+            $table->dateTime('fecCrea');
             $table->dateTime('fecMod')->nullable();
             $table->integer('bitEstado')->default(1);
         });
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('perfiles');
+        Schema::dropIfExists('caracteristicas');
     }
 };

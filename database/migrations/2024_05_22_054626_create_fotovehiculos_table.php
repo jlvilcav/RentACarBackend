@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('perfiles', function (Blueprint $table) {
-            $table->id('idPerfil');
-            $table->string('nombrePerfil', 50);
-            $table->unsignedBigInteger('usuCrea')->nullable();
+        Schema::create('fotovehiculos', function (Blueprint $table) {
+            $table->id('idFotoVehiculo');
+            $table->unsignedBigInteger('idVehiculo');
+            $table->string('rutaFoto', 100);
+            $table->string('extension', 4);
+            $table->unsignedBigInteger('usuCrea');
             $table->unsignedBigInteger('usuMod')->nullable();
-            $table->dateTime('fecCrea')->nullable();
+            $table->dateTime('fecCrea');
             $table->dateTime('fecMod')->nullable();
             $table->integer('bitEstado')->default(1);
         });
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('perfiles');
+        Schema::dropIfExists('fotovehiculos');
     }
 };
