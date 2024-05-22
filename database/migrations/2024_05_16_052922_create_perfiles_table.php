@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('perfiles', function (Blueprint $table) {
             $table->id('idPerfil');
             $table->string('nombrePerfil', 50);
+            $table->integer('bitEstado');
+            $table->integer('usuCrea')->nullable();
+            $table->integer('usuMod')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

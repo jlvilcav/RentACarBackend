@@ -19,6 +19,9 @@ return new class extends Migration
             $table->unsignedBigInteger('idPerfil');
             $table->foreign('idPersona')->references('idPersona')->on('personas');
             $table->foreign('idPerfil')->references('idPerfil')->on('perfiles');
+            $table->integer('bitEstado');
+            $table->integer('usuCrea')->nullable();
+            $table->integer('usuMod')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

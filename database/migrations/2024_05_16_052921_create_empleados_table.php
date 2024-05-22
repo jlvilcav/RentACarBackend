@@ -19,6 +19,9 @@ return new class extends Migration
             $table->unsignedBigInteger('idCargo');
             $table->foreign('idPersona')->references('idPersona')->on('personas');
             $table->foreign('idCargo')->references('idCargo')->on('cargos');
+            $table->integer('bitEstado');
+            $table->integer('usuCrea')->nullable();
+            $table->integer('usuMod')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

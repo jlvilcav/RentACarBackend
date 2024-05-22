@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id('idTipoDocumento');
             $table->string('descripcion', 20);
             $table->integer('ancho');
+            $table->integer('bitEstado');
+            $table->integer('usuCrea')->nullable();
+            $table->integer('usuMod')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('apMaterno', 50);
             $table->string('nombres', 50);
             $table->string('numeroDocumento', 15);
+            $table->integer('bitEstado');
+            $table->integer('usuCrea')->nullable();
+            $table->integer('usuMod')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
