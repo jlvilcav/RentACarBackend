@@ -20,5 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Rutas para MarcaVehiculo
-Route::post('registerMarcaVehiculo',[MarcaVehiculoController::class, 'store']);
-Route::post('registerMarcaVehiculo',[MarcaVehiculoController::class, 'index']);
+// Route::post('registerMarcaVehiculo',[MarcaVehiculoController::class, 'store']);
+// Route::post('registerMarcaVehiculo',[MarcaVehiculoController::class, 'index']);
+Route::apiResource('marcas-vehiculos', MarcaVehiculoController::class);
