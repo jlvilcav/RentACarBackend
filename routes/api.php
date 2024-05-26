@@ -20,6 +20,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Rutas para MarcaVehiculo
-// Route::post('registerMarcaVehiculo',[MarcaVehiculoController::class, 'store']);
-// Route::post('registerMarcaVehiculo',[MarcaVehiculoController::class, 'index']);
 Route::apiResource('marcas-vehiculos', MarcaVehiculoController::class);
+
+// Rutas ModeloVehiculo
+Route::apiResource('modelos-vehiculos', ModeloVehiculoController::class);
+
+// Rutas Tablas Maestras
+Route::apiResource('tablas-maestras', TablaMaestraController::class);
