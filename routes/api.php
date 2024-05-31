@@ -33,3 +33,6 @@ Route::apiResource('clientes', ClienteController::class);
 
 // Rutas Afiliados
 Route::apiResource('afiliados', AfiliadoController::class);
+
+// Rutas Vehiculo
+Route::apiResource('vehiculos', VehiculoController::class);
