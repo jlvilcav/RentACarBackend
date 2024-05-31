@@ -27,3 +27,9 @@ Route::apiResource('modelos-vehiculos', ModeloVehiculoController::class);
 
 // Rutas Tablas Maestras
 Route::apiResource('tablas-maestras', TablaMaestraController::class);
+
+// Rutas Clientes
+Route::apiResource('clientes', ClienteController::class);
+
+// Rutas Afiliados
+Route::apiResource('afiliados', AfiliadoController::class);
