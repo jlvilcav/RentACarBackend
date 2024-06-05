@@ -44,12 +44,26 @@ class MarcaVehiculoController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // Encuentra el registro por ID
+        $marcaVehiculo = MarcaVehiculo::find($id);
+
+        // Verifica si el registro existe
+        if (!$marcaVehiculo) {
+            return response()->json(['message' => 'MarcaVehiculo not found'], 404);
+        }
+
+        // Valida los datos del request
         $validated = $request->validate([
-            'nombreMarcaVehiculo' => 'max:20',
-            'usuMod' => 'required|integer'
+            'nombreMarcaVehiculo' => 'required|max:20',
+            'usuCrea' => 'required|integer',
+            'usuMod' => 'integer',
+            'bitEstado' => 'required|integer'
         ]);
 
+        // Actualiza el registro con los datos validados
         $marcaVehiculo->update($validated);
+
+        // Devuelve la respuesta
         return response()->json($marcaVehiculo, 200);
     }
 

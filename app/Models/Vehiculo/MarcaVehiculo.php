@@ -12,6 +12,9 @@ class MarcaVehiculo extends Model
     // Especifica el nombre de la tabla
     protected $table = 'marcavehiculos';
 
+    // Especifica el nombre de la clave primaria
+    protected $primaryKey = 'idMarcaVehiculo';
+
     // Define las propiedades que pueden ser asignadas masivamente
     protected $fillable = [
         'nombreMarcaVehiculo',
