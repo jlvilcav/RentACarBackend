@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\Vehiculo\MarcaVehiculoController;
+use App\Http\Controllers\Vehiculo\ModeloVehiculoController;
+use App\Http\Controllers\Vehiculo\VehiculoController;
+use App\Http\Controllers\Maestros\TablaMaestraController;
+use App\Http\Controllers\Cliente\ClienteController;
+use App\Http\Controllers\Afiliado\AfiliadoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
