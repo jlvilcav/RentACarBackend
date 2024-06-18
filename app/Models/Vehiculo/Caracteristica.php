@@ -5,20 +5,20 @@ namespace App\Models\Vehiculo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ModeloVehiculo extends Model
+class Caracteristica extends Model
 {
     use HasFactory;
 
     // Especifica el nombre de la tabla
-    protected $table = 'modelovehiculos';
+    protected $table = 'caracteristicas';
 
     // Especifica el nombre de la clave primaria
-    protected $primaryKey = 'idModeloVehiculo';
+    protected $primaryKey = 'idCaracteristica';
 
     // Define las propiedades que pueden ser asignadas masivamente
     protected $fillable = [
-        'idMarcaVehiculo',
-        'nombreModeloVehiculo',
+        'caracteristica',
+        'label',
         'usuCrea',
         'usuMod',
         'bitEstado'
@@ -36,10 +36,4 @@ class ModeloVehiculo extends Model
     // Define los campos personalizados para timestamps
     const CREATED_AT = 'fecCrea';
     const UPDATED_AT = 'fecMod';
-
-    // Define la relación con la tabla `marcavehiculos`
-    public function marcaVehiculo()
-    {
-        return $this->belongsTo(MarcaVehiculo::class, 'idMarcaVehiculo', 'idMarcaVehiculo');
-    }
 }
