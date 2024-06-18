@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id('idCaracteristica');
             $table->string('caracteristica', 50);
             $table->string('label', 50);
-            $table->unsignedBigInteger('usuCrea');
+            $table->unsignedBigInteger('usuCrea')->nullable();
             $table->unsignedBigInteger('usuMod')->nullable();
-            $table->dateTime('fecCrea');
+            $table->dateTime('fecCrea')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->dateTime('fecMod')->nullable();
             $table->integer('bitEstado')->default(1);
         });

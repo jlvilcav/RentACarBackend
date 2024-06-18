@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Vehiculo\MarcaVehiculoController;
 use App\Http\Controllers\Vehiculo\ModeloVehiculoController;
+use App\Http\Controllers\Vehiculo\CaracteristicaController;
 use App\Http\Controllers\Vehiculo\VehiculoController;
 use App\Http\Controllers\Maestros\TablaMaestraController;
 use App\Http\Controllers\Cliente\ClienteController;
@@ -41,3 +42,6 @@ Route::apiResource('afiliados', AfiliadoController::class);
 
 // Rutas Vehiculo
 Route::apiResource('vehiculos', VehiculoController::class);
+
+// Ritas Caracteristicas
+Route::apiResource('caracteristicas', CaracteristicaController::class);
