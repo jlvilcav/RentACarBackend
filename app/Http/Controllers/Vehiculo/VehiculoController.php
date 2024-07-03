@@ -17,28 +17,93 @@ class VehiculoController extends Controller
     // Crear un nuevo vehículo
     public function store(Request $request)
     {
-        $vehiculo = Vehiculo::create($request->all());
+        $validated = $request->validate([
+            'idMarcaVehiculo' => 'required|integer',
+            'idModeloVehiculo' => 'required|integer',
+            'placa' => 'required|string|max:6',
+            'motor' => 'required|integer',
+            'anio' => 'required|string|max:4',
+            'kilometraje' => 'required|integer',
+            'gps' => 'integer',
+            'fechaSoat' => 'date',
+            'fechaInspeccionVehicular' => 'date',
+            'idAfilado' => 'integer',
+            'idTipoVehiculo' => 'required|integer',
+            'idTipoCombustible' => 'required|integer',
+            'idTrasmision' => 'required|integer',
+            'idTraccion' => 'required|integer',
+            'idCategoriaVehiculo' => 'required|integer',
+            'precioAlquiler' => 'required|numeric',
+            'observacion' => 'string|max:1000',
+            'usuCrea' => 'required|integer',
+            'usuMod' => 'integer',
+            'bitEstado' => 'integer'
+        ]);
+
+        $vehiculo = Vehiculo::create($validated);
         return response()->json($vehiculo, 201);
     }
 
     // Mostrar un vehículo específico
     public function show($id)
     {
-        return Vehiculo::findOrFail($id);
+        $vehiculo = Vehiculo::find($id);
+
+        if (!$vehiculo) {
+            return response()->json(['message' => 'Vehiculo not found'], 404);
+        }
+
+        return response()->json($vehiculo);
     }
 
     // Actualizar un vehículo existente
     public function update(Request $request, $id)
     {
-        $vehiculo = Vehiculo::findOrFail($id);
-        $vehiculo->update($request->all());
+        $vehiculo = Vehiculo::find($id);
+
+        if (!$vehiculo) {
+            return response()->json(['message' => 'Vehiculo not found'], 404);
+        }
+
+        $validated = $request->validate([
+            'idMarcaVehiculo' => 'required|integer',
+            'idModeloVehiculo' => 'required|integer',
+            'placa' => 'required|string|max:6',
+            'motor' => 'required|integer',
+            'anio' => 'required|string|max:4',
+            'kilometraje' => 'required|integer',
+            'gps' => 'integer',
+            'fechaSoat' => 'date',
+            'fechaInspeccionVehicular' => 'date',
+            'idAfilado' => 'integer',
+            'idTipoVehiculo' => 'required|integer',
+            'idTipoCombustible' => 'required|integer',
+            'idTrasmision' => 'required|integer',
+            'idTraccion' => 'required|integer',
+            'idCategoriaVehiculo' => 'required|integer',
+            'precioAlquiler' => 'required|numeric',
+            'observacion' => 'string|max:1000',
+            'usuCrea' => 'required|integer',
+            'usuMod' => 'integer',
+            'bitEstado' => 'integer'
+        ]);
+
+        $vehiculo->update($validated);
+
         return response()->json($vehiculo, 200);
     }
 
     // Eliminar un vehículo
     public function destroy($id)
     {
-        Vehiculo::destroy($id);
+        $vehiculo = Vehiculo::find($id);
+
+        if (!$vehiculo) {
+            return response()->json(['message' => 'Vehiculo not found'], 404);
+        }
+
+        $vehiculo->delete();
+
         return response()->json(null, 204);
     }
 }
